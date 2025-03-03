@@ -6,7 +6,6 @@
         <div class="col-md-6">
             {% for i in latest_news %}
             <div class="card text-bg-dark border-0 main-news-img">
-
                 <a href="{{i.source_url}}" style="text-decoration: none; color: white;">
                     <div class="card-img-wrapper position-relative">
                         <img src="{{i.image_url}}" class="card-img" alt="...">
@@ -161,14 +160,7 @@
                                 <small>{{i.pubDate}}</small>
                                 <br>
                                 <a href="{{i.source_url}}"><button type="button" class="btn btn-danger">Read Full</button></a>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
+                              </div></div></div></div>
                     {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </div></div></div></div></div>
 {% endblock content %}
