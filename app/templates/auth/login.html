@@ -1,0 +1,23 @@
+{% extends "auth/authing.html" %}
+{% block form_content %}
+<form class="row g-3 p-3" method="POST">
+    <h1 class="text-center">LOGIN</h1>
+    {% csrf_token %}
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Username</label>
+        <input type="text" class="form-control" id="validationDefault01" name="username" required>
+    </div>
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Password</label>
+        <input type="password" class="form-control" id="validationDefault01" name="password" required>
+    </div>
+    <hr>
+    <div class="col-12">
+        <button type="submit" class="btn">Submit</button>
+        <input type="reset" class="btn" value="Reset">
+    </div>
+    <div class="col-12">
+        <p>Not a member yet? <a href="{% url 'register' %}">Register</a> </p>
+    </div>
+</form>
+{% endblock form_content %}

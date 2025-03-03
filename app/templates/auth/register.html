@@ -1,0 +1,40 @@
+{% extends "auth/authing.html" %}
+{% block form_content %}
+<form class="row g-3 p-3" method="POST" action="{% url 'register' %}">
+    <h1 class="text-center">REGISTER</h1>
+    {% csrf_token %}
+    <a href="{% url 'home' %}">
+        <h1 class="crossicon"><i class="fa-solid fa-xmark"></i></h1>
+    </a>
+    <div class="col-md-6">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" name="first_name" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="last_name" required>
+    </div>
+
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Username</label>
+        <input type="text" class="form-control" id="validationDefault01" name="username" required>
+    </div>
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Email</label>
+        <input type="email" class="form-control" id="validationDefault01" name="email" required>
+    </div>
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Password</label>
+        <input type="password" class="form-control" id="validationDefault01" name="password" required>
+    </div>
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="validationDefault01" name="password1" required>
+    </div>
+    <hr>
+    <div class="col-12">
+        <button type="submit" class="btn">Submit</button>
+        <input type="reset" class="btn" value="Reset">
+    </div>
+</form>
+{% endblock form_content %}
