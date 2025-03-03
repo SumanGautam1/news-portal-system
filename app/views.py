@@ -6,6 +6,7 @@ import requests, json
 from django.contrib.auth.models import User
 from django.conf import settings
 
+# Different API Keys used thoughtout the application
 API_KEY = settings.API_KEY
 NEPAL_API = settings.NEPAL_API
 KHALTI_API = settings.KHALTI_API

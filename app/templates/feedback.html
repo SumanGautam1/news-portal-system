@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> FEEDBACKS</title>
-
   <!-- bootstrap css  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-  <!-- USING BUNDLE (OFFLINE) -->
-  <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> -->
-
-
-
   <!-- Internal Stylesheet -->
   <style>
     * {
@@ -23,21 +15,16 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       background-image: linear-gradient(to right, #49a1f4, #ff5a85);
     }
-
-
     form {
       box-shadow: 2px 6px 100px #ffffff;
     }
-
     .sign-up {
       color: black;
       font-weight: 600;
     }
-
     .btn {
       background-image: linear-gradient(to right, #49a1f4, #ff5a85);
       color: black;
@@ -48,12 +35,10 @@
       overflow: auto;
     }
 
-    th,
-    thead {
+    th, thead {
       position: sticky;
       top: 0;
     }
-
     .register-image {
       height: 70px;
       width: 70px;
@@ -61,7 +46,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="container-fluid">
     <header class="text-center">
@@ -96,9 +80,6 @@
       </div>
     </form>
   </section>
-
-
-
   <br><br><br>
   <div class="container">
     <h1>FEEDBACKS</h1>
@@ -113,8 +94,6 @@
             <th scope="col">Image</th>
           </tr>
         </thead>
-
-
         <tbody>
           {% for i in data %}
           <tr>
@@ -128,16 +107,9 @@
         </tbody>
       </table>
     </div>
-
-
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
 crossorigin="anonymous"></script>    
-
-    <!-- USING BUNDLE (OFFLINE) -->
-    <!-- <script src="{% static 'js/bootstrap.bundle.js' %}"></script> -->
 </body>
-
 </html>

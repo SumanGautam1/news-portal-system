@@ -8,6 +8,8 @@ This is a News Portal System made using Django and Bootstrap leveraging free API
 3. Subscription based government notice system
 4. Login/Logout features for feedback
 5. Easy to navigate UI
+6. Selenium automated testing for login
+7. Custom made logo.
 
 ## Installation
 1. Clone the repository:
