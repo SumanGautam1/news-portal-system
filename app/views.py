@@ -6,6 +6,10 @@ import requests, json
 from django.contrib.auth.models import User
 from django.conf import settings
 
+import json
+import requests
+from django.http import JsonResponse, HttpResponseRedirect
+
 # Different API Keys used thoughtout the application
 API_KEY = settings.API_KEY
 NEPAL_API = settings.NEPAL_API
@@ -125,12 +129,12 @@ def feedback(request):
     Returns:
         HttpResponse object with the rendered 'feedback.html' template and feedback data.
     """
-    if request.method == 'POST' and request.FILES:
+    if request.method == 'POST':
         data = request.POST
         name = data['name']
         email = data['email']
         desc = data['desc']
-        image = request.FILES['image']
+        image = request.FILES.get('image')
         ob = Feedback(name=name, email=email, desc=desc, image=image)
         ob.save()
         messages.success(request, "Successfully added!")
@@ -250,8 +254,7 @@ def initkhalti(request):
         HttpResponse object with a redirect to the Khalti payment URL.
     """
     url = "https://a.khalti.com/api/v2/epayment/initiate/"
-    return_url = request.POST.get('return_url')
-    website_url = request.POST.get('return_url')
+    return_url = 'http://127.0.0.1:8000/'
     amount = 1000
     purchase_order_id = request.POST.get('purchase_order_id')
     purchase_order_name = request.POST.get('purchase_order_name')
@@ -271,12 +274,28 @@ def initkhalti(request):
             "phone": phone,
         }
     })
-
+    
     headers = {
         'Authorization': f'Key {KHALTI_API}',
         'Content-Type': 'application/json',
     }
 
-    response = requests.request("POST", url, headers=headers, data=payload)
-    new_res = json.loads(response.text)
-    return redirect(new_res['payment_url'])
+    response = requests.post(url, headers=headers, data=payload)
+    
+
+    # Check the response status
+    if response.status_code != 200:
+        return JsonResponse({"error": "Failed to initiate payment", "details": response.text}, status=400)
+
+    try:
+        new_res = response.json()
+        print("Khalti Response:", new_res)  # Debugging line
+
+        if 'payment_url' not in new_res:
+            return JsonResponse({"error": "Missing 'payment_url' in response", "response": new_res}, status=400)
+
+        return HttpResponseRedirect(new_res['payment_url'])
+
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON response from Khalti", "response": response.text}, status=400)
+

@@ -45,3 +45,21 @@ Get the ```NEPAL_API and API_KEY``` from [newsapi.org](https://newsapi.org/) and
     ```bash
     python manage.py runserver
 
+## UI Screenshots:
+### Home Page
+<p align="center">
+  <img src="assets/homepage.png" width="45%" />
+  <img src="assets/homepage1.png" width="45%" />
+</p>
+
+### Government Sites Page
+![Login Page](assets/govsites.png?raw=true "Login Page")
+
+### News Page
+![News Page](assets/news.png?raw=true "News Page")
+
+### Payment Integration with Khalti
+<p align="center">
+  <img src="assets/noticeform.png" width="45%" />
+  <img src="assets/khalti.png" width="45%" />
+</p>

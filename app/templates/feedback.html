@@ -71,7 +71,7 @@
       <div class="col-12">
         <label for="myfile">Upload documents (if any):</label>
         <br><br>
-        <input type="file" value="browse" name="image">
+        <input type="file" name="image">
       </div>
       <hr>
       <div class="col-12">
@@ -101,7 +101,14 @@
             <td>{{i.name}}</td>
             <td>{{i.email}}</td>
             <td>{{i.desc}}</td>
-            <td><img src="{{i.image.url}}" class="register-image" alt=""></td>
+            <td>
+              {% if i.image %}
+              <img src="{{i.image.url}}" class="register-image" alt="">
+
+              {% else %}
+              None
+              {% endif %}
+            </td>
           </tr>
           {% endfor %}
         </tbody>

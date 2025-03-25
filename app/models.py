@@ -28,7 +28,7 @@ class Feedback(models.Model):
     name = models.CharField(max_length=20)
     email = models.EmailField()
     desc = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='image')
+    image = models.ImageField(upload_to='image', blank=True)
 
 
 class Government(models.Model):
