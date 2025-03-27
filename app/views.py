@@ -182,6 +182,7 @@ def news(request):
     })
 
 
+
 def about(request):
     """
     Renders the about page.
@@ -240,6 +241,7 @@ def notices(request):
     return render(request, 'notices.html')
 
 
+
 def initkhalti(request):
     """
     Initiates a Khalti payment.
@@ -282,7 +284,6 @@ def initkhalti(request):
 
     response = requests.post(url, headers=headers, data=payload)
     
-
     # Check the response status
     if response.status_code != 200:
         return JsonResponse({"error": "Failed to initiate payment", "details": response.text}, status=400)
